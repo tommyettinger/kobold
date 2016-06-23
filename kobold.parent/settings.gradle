@@ -1,0 +1,4 @@
+include 'kobold'
+include 'kobold.ide'
+include 'kobold.idea'
+include 'kobold.web'

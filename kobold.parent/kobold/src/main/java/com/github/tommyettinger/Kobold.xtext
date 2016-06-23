@@ -1,0 +1,9 @@
+grammar com.github.tommyettinger.kobold with org.eclipse.xtext.common.Terminals
+
+generate kobold "http://www.github.com/tommyettinger/kobold"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
