@@ -1,4 +1,4 @@
-grammar com.github.tommyettinger.kobold with org.eclipse.xtext.common.Terminals
+grammar com.github.tommyettinger.Kobold with org.eclipse.xtext.xbase.Xbase
 
 generate kobold "http://www.github.com/tommyettinger/kobold"
 

@@ -3,13 +3,13 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-		classpath 'org.xtext:xtext-gradle-plugin:1.0.2'
-		classpath 'org.xtext:xtext-idea-gradle-plugin:1.0.2'
+		classpath 'org.xtext:xtext-gradle-plugin:1.0.5'
+		classpath 'org.xtext:xtext-idea-gradle-plugin:1.0.5'
 	}
 }
 
 subprojects {
-	ext.xtextVersion = '2.9.2'
+	ext.xtextVersion = '2.10.0'
 	repositories {
 		jcenter()
 	}
@@ -26,6 +26,8 @@ subprojects {
 	
 	sourceCompatibility = '1.6'
 	targetCompatibility = '1.6'
+
+	[compileJava, compileTestJava, javadoc]*.options*.encoding = 'windows-1252'
 	
 	configurations.all {
 		exclude group: 'asm'

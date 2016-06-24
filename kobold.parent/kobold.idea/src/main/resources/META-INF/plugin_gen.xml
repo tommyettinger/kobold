@@ -1,0 +1,93 @@
+<idea-plugin version="2">
+	<extensions defaultExtensionNs="org.eclipse.xtext.idea">
+		<package
+			uri="http://www.github.com/tommyettinger/kobold"
+			class="com.github.tommyettinger.kobold.KoboldPackage"
+		/>
+		<resourceFactory 
+			type="kob"
+			class="org.eclipse.xtext.resource.IResourceFactory"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+		/>
+		<resourceServiceProvider
+			uriExtension="kob"
+			class="org.eclipse.xtext.idea.resource.IResourceIdeaServiceProvider"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+		/>
+
+		<lang.setup
+			language="com.github.tommyettinger.Kobold"
+			implementationClass="com.github.tommyettinger.idea.KoboldIdeaSetup"
+		/>
+	</extensions>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<psi.treeChangePreprocessor implementation="com.github.tommyettinger.idea.lang.psi.KoboldCodeBlockModificationListener"/>
+
+		<fileTypeFactory implementation="com.github.tommyettinger.idea.lang.KoboldFileTypeFactory"/>
+		<stubElementTypeHolder class="com.github.tommyettinger.idea.lang.KoboldElementTypeProvider"/>
+		<lang.ast.factory 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.lang.BaseXtextASTFactory"
+		/>
+		<lang.parserDefinition 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="com.github.tommyettinger.idea.lang.parser.KoboldParserDefinition"
+		/>
+		<lang.findUsagesProvider 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.findusages.BaseXtextFindUsageProvider"
+		/>
+		<lang.refactoringSupport 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.refactoring.BaseXtextRefactoringSupportProvider"
+		/>
+		<lang.namesValidator 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="com.intellij.lang.refactoring.NamesValidator"
+		/>
+		<lang.syntaxHighlighterFactory key="com.github.tommyettinger.Kobold" implementationClass="com.github.tommyettinger.idea.highlighting.KoboldSyntaxHighlighterFactory" />
+		<lang.braceMatcher 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="com.intellij.lang.PairedBraceMatcher"
+		/>
+		<annotator 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.annotation.IssueAnnotator"
+		/>
+		<completion.contributor language="com.github.tommyettinger.Kobold" implementationClass="com.github.tommyettinger.idea.completion.KoboldCompletionContributor"/>
+		<pom.declarationSearcher implementation="com.github.tommyettinger.idea.lang.pom.KoboldPomDeclarationSearcher"/>
+
+		<lang.psiStructureViewFactory 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="com.intellij.lang.PsiStructureViewFactory"
+		/>
+		<facetType implementation="com.github.tommyettinger.idea.facet.KoboldFacetType"/>
+		<lang.documentationProvider 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="org.eclipse.xtext.idea.documentation.IdeaDocumentationProvider"
+		/>
+		<colorSettingsPage implementation="com.github.tommyettinger.idea.highlighting.KoboldColorSettingsPage"/>
+		<highlightVisitor implementation="com.github.tommyettinger.idea.highlighting.KoboldSemanticHighlightVisitor"/>
+
+		<lang.formatter 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="com.intellij.formatting.FormattingModelBuilder"
+		/>
+		<lang.commenter 
+			language="com.github.tommyettinger.Kobold"
+			factoryClass="com.github.tommyettinger.idea.KoboldExtensionFactory"
+			implementationClass="com.intellij.lang.CodeDocumentationAwareCommenter"
+		/>
+	</extensions>
+</idea-plugin>
